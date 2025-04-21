@@ -18,5 +18,11 @@ Load the zip file as a "Temporary add-on".
 
 ## Signing and installation
 
-TBC
+Head to https://addons.mozilla.org/en-GB/developers/addons and submit a new add-on for signing / review, or update an existing one.
+
+Select "On your own" when asked "How to Distribute this Version" (as we don't want to publish it publicly).
+
+Signing and review should be automated, and the XPI file will be available for download once the review is complete.
+
+Download the XPI file for the relevant version of the addon - Firefox should automatically prompt to install it.
 
