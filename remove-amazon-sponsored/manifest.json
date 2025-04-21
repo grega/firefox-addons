@@ -1,9 +1,18 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Remove Sponsored Amazon Items",
   "version": "1.0",
   "description": "Removes sponsored listings from Amazon search results.",
-  "permissions": ["<all_urls>"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "remove-amazon-sponsored@gregannandale.com",
+      "strict_min_version": "137.0"
+    }
+  },
+  "icons": {
+    "48": "icons/icon-48.png"
+  },
+  "permissions": [],
   "content_scripts": [
     {
       "matches": [
@@ -13,8 +22,5 @@
       "js": ["content.js"],
       "run_at": "document_idle"
     }
-  ],
-  "icons": {
-    "48": "icons/icon-48.png"
-  }
+  ]
 }
