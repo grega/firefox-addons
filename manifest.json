@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "Remove Sponsored Amazon Items",
+  "version": "1.0",
+  "description": "Removes sponsored listings from Amazon search results.",
+  "permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.amazon.co.uk/*",
+        "*://www.amazon.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "48": "icons/icon-48.png"
+  }
+}
