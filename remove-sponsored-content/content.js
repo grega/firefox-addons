@@ -22,15 +22,23 @@ const rules = [
     name: 'Reddit',
     hosts: ['reddit.com'],
     labels: ['span.promoted-label'],
-    containers: ['shreddit-ad-post', 'shreddit-post', '[data-testid="post-container"]'],
+    containers: [
+      'shreddit-ad-post',          // feed ad
+      'shreddit-comments-page-ad', // ad in a comment tree
+      'shreddit-post',
+      '[data-testid="post-container"]'
+    ],
     // each feed post sits in its own <article>, so this still isolates a single
     // ad if the post element above is renamed again
     fallback: 'article',
-    wrappers: ['article'],
-    // Both UIs put the ad's identity on the post element itself, so these need
-    // no label: shreddit-ad-post is the current feed's ad element, and
-    // old.reddit.com marks promoted links with a class on the post container
-    remove: ['shreddit-ad-post', '.thing.promotedlink']
+    wrappers: ['article', 'shreddit-comment-tree-ad'],
+    // Every ad element carries `promotedlink`, whichever placement and UI it
+    // belongs to - the feed's shreddit-ad-post, the comment tree's
+    // shreddit-comments-page-ad, and old.reddit.com's post container - so the
+    // class identifies an ad on its own, without needing a label.
+    // shreddit-comment-tree-ad is the slot the comment-tree ad sits in; it
+    // carries no class of its own, hence listing it as a wrapper above too.
+    remove: ['.promotedlink', 'shreddit-comment-tree-ad']
   }
 ];
 

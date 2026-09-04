@@ -7,7 +7,7 @@ Firefox add-on to remove sponsored / promoted content from supported sites.
 | Site | What gets removed |
 | --- | --- |
 | `amazon.co.uk`, `amazon.com` | Search result items carrying a "Sponsored" label |
-| `reddit.com` | `<shreddit-ad-post>` feed ads, plus any post carrying an "Ad" / promoted label (both the current UI and `old.reddit.com`) |
+| `reddit.com` | Anything carrying Reddit's `promotedlink` class - feed ads, comment-tree ads, and `old.reddit.com` promoted posts - plus any post carrying an "Ad" / promoted label |
 
 ## Adding a site
 
