@@ -22,7 +22,7 @@ Head to https://addons.mozilla.org/en-GB/developers/addons and submit a new add-
 
 Select "On your own" when asked "How to Distribute this Version" (as we don't want to publish it publicly).
 
-Signing and review should be automated, and the XPI file will be available for download once the review is complete.
+Signing and review should be automated, and the XPI file will be available for download once the review is complete (go to "Manage Status and Versions" for the relevant add-on, then select a version and the XPI should be linked to towards the top of the page).
 
 Download the XPI file for the relevant version of the addon - Firefox should automatically prompt to install it.
 
