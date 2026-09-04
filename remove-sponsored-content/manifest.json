@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Remove Sponsored Amazon Items",
-  "version": "1.0",
-  "description": "Removes sponsored listings from Amazon search results.",
+  "name": "Remove Sponsored Content",
+  "version": "2.0",
+  "description": "Removes sponsored and promoted content from Amazon search results and Reddit feeds.",
   "browser_specific_settings": {
     "gecko": {
       "id": "remove-amazon-sponsored@gregannandale.com",
@@ -16,8 +16,9 @@
   "content_scripts": [
     {
       "matches": [
-        "*://www.amazon.co.uk/*",
-        "*://www.amazon.com/*"
+        "*://*.amazon.co.uk/*",
+        "*://*.amazon.com/*",
+        "*://*.reddit.com/*"
       ],
       "js": ["content.js"],
       "run_at": "document_idle"
