@@ -7,7 +7,7 @@ Firefox add-on to remove sponsored / promoted content from supported sites.
 | Site | What gets removed |
 | --- | --- |
 | `amazon.co.uk`, `amazon.com` | Search result items carrying a "Sponsored" label |
-| `reddit.com` | Feed posts carrying an "Ad" / promoted label (both the current UI and `old.reddit.com`) |
+| `reddit.com` | `<shreddit-ad-post>` feed ads, plus any post carrying an "Ad" / promoted label (both the current UI and `old.reddit.com`) |
 
 ## Adding a site
 
@@ -27,11 +27,15 @@ selector(s) for the surrounding element to remove:
 The nearest ancestor (or self) of the label matching `containers` is what gets removed.
 Optional extras:
 
+- `fallback` - a last-resort container selector, tried only when nothing in `containers`
+  matches. Being generic it is trusted only when it holds a single label, so a stale
+  selector can't take out a whole feed.
 - `wrappers` - layout elements around a container that should go too, but only when they
   hold nothing else (e.g. Reddit wraps each post in its own `<article>`).
 - `remove` - selectors for elements that can be removed outright, where the ad is
-  identifiable without a separate label (e.g. `old.reddit.com` puts a `promotedlink` class
-  straight onto the post).
+  identifiable without a separate label (e.g. Reddit's `<shreddit-ad-post>`, and the
+  `promotedlink` class `old.reddit.com` puts straight onto the post). These are widened by
+  `wrappers` in the same way as containers.
 
 New hostnames also need adding to `content_scripts.matches` in [manifest.json](manifest.json).
 

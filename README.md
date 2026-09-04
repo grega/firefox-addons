@@ -26,3 +26,15 @@ Signing and review should be automated, and the XPI file will be available for d
 
 Download the XPI file for the relevant version of the addon - Firefox should automatically prompt to install it.
 
+### Host permissions after an update
+
+Firefox treats each host an MV3 add-on matches as a separate permission the user can grant or
+revoke. Permissions granted at install time carry over on update, but hosts *added* by an
+update are not prompted for and arrive **not granted** ([bug 1893232]) - the add-on silently
+does nothing on the new site while continuing to work on the old ones.
+
+After an update that adds a site, check `about:addons` -> the add-on -> **Permissions** and
+enable the new host.
+
+[bug 1893232]: https://bugzilla.mozilla.org/show_bug.cgi?id=1893232
+
